@@ -1,3 +1,4 @@
+from __future__ import annotations
 import os
 
 os.environ["OMP_NUM_THREADS"] = "1"
@@ -5,7 +6,6 @@ os.environ["OPENBLAS_NUM_THREADS"] = "1"
 os.environ["MKL_NUM_THREADS"] = "1"
 
 import streamlit as st
-from __future__ import annotations
 import io
 import hashlib
 import pandas as pd
