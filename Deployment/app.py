@@ -1,8 +1,15 @@
+import os
+
+os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["OPENBLAS_NUM_THREADS"] = "1"
+os.environ["MKL_NUM_THREADS"] = "1"
+
+import streamlit as st
 from __future__ import annotations
 import io
 import hashlib
 import pandas as pd
-import streamlit as st
+# import streamlit as st
 import matplotlib.pyplot as plt
 from PIL import Image
 from Ecg import ECG, ECGInputError, SUPPORTED_EXTENSIONS, LABELS
