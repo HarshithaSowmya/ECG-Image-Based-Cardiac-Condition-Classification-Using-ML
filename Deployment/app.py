@@ -45,7 +45,22 @@ html,body,[class*="css"]{font-family:'DM Sans',sans-serif}
 footer{color:#8794a6;font-size:.8rem;text-align:center;padding:2rem 0 1rem}
 .stButton>button{border-radius:11px;font-weight:700;min-height:2.8rem}
 [data-testid="stFileUploader"]{border:1px dashed #9bbab9;border-radius:16px;background:#f9fdfd;padding:.7rem}
+
+/* Fix visibility of validation error text */
+[data-testid="stAlert"][data-st-alert-type="error"],
+[data-testid="stAlert"][data-st-alert-type="error"] * {
+    color: #991B1B !important;
+    -webkit-text-fill-color: #991B1B !important;
+}
+
+/* Keep error background light pink */
+[data-testid="stAlert"][data-st-alert-type="error"] {
+    background-color: #FEE2E2 !important;
+    border-color: #FCA5A5 !important;
+}
+
 @media(max-width:700px){.block-container{padding:1rem}.hero{padding:1.4rem}.panel{padding:1rem}}
+
 </style>
 """, unsafe_allow_html=True)
 
