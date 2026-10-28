@@ -43,5 +43,5 @@ were excluded. They are recreated by the setup commands. Datasets, training code
 and preprocessing outputs were not intentionally omitted.
 
 The huge training/output folders are for local research; do not bundle them into
-the deployed Vercel inference function. Use the smaller application directory in
-the GitHub repository for deployment.
+the deployed Vercel inference function. Set the Vercel project Root Directory to Full-Project and redeploy.
+The included vercel.json and .vercelignore exclude research data and outputs.
