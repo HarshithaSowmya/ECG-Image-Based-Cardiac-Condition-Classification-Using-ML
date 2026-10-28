@@ -1,0 +1,139 @@
+{
+  "original_archive": "heart disease (2).zip",
+  "restoration_source": "https://github.com/rameshavinash94/Cardiovascular-Detection-using-ECG-images",
+  "updated_code_commit": "9a49af06c0a4cecc6aa783ee8fba16970a976006",
+  "excluded_installed_folders": [
+    ".git",
+    ".pytest_cache",
+    ".venv",
+    ".venv314_backup",
+    ".vercel",
+    "__MACOSX",
+    "__pycache__",
+    "node_modules",
+    "ui-backup-before-import",
+    "venv"
+  ],
+  "folders": {
+    ".gitattributes": 1,
+    ".gitignore": 1,
+    ".python-version": 1,
+    ".vercelignore": 1,
+    ".vscode": 2,
+    "CHANGES.md": 1,
+    "Combined1d_csv": 13,
+    "DEPLOY_VERCEL.md": 1,
+    "Deployment": 52,
+    "ECG_IMAGES_DATASET": 928,
+    "Final_Dataset": 2,
+    "README.md": 1,
+    "api": 1,
+    "backend": 1,
+    "dataset": 928,
+    "frontend": 27,
+    "img": 3,
+    "model_pkl": 2,
+    "models": 3,
+    "package.json": 1,
+    "preproceed_images": 42073,
+    "preprocessed_1d": 52,
+    "preprocessing": 8,
+    "pyproject.toml": 1,
+    "requirements.txt": 1,
+    "run_backend.bat": 1,
+    "run_frontend.bat": 1,
+    "training": 12,
+    "validation": 23,
+    "vercel.json": 1
+  },
+  "restored_outputs": 42142,
+  "unresolved": [
+    {
+      "path": "Deployment/Contour_Leads_1-12_figure.png",
+      "sha256": "ea1813560dd9f232b8fdb4aed81392110b1e72af2a0c89d14a910a3424256615",
+      "size": 72716
+    },
+    {
+      "path": "Deployment/Leads_1-12_figure.png",
+      "sha256": "3afb345c2fd4f022ae520c3ebd73447c38b0fd979052e7f4f3d0b928b4edfe62",
+      "size": 756152
+    },
+    {
+      "path": "Deployment/Long_Lead_13_figure.png",
+      "sha256": "f4cc1c109a0f3a54591c2d9ee9194846bb884d61f272f4a73e8eeae5118bd004",
+      "size": 142327
+    },
+    {
+      "path": "Deployment/Preprossed_Leads_1-12_figure.png",
+      "sha256": "eb29bb1b8c41b21fcf09bc720b1224e33065cf579ed07970efee5fbb84be79f5",
+      "size": 86315
+    },
+    {
+      "path": "Deployment/Preprossed_Leads_13_figure.png",
+      "sha256": "cdf9b082708acc598f840bf4a65507abbedaa673b6a3bad82753e74c8adcf5eb",
+      "size": 23383
+    },
+    {
+      "path": "Deployment/Scaled_1DLead_1.csv",
+      "sha256": "0cb4a5792022736e42922570c390916924d1e4b959b1b59517a24cc40a7c55d2",
+      "size": 5728
+    },
+    {
+      "path": "Deployment/Scaled_1DLead_10.csv",
+      "sha256": "10f869f3225458da0d7450bd5852a11cc74a17c286f93108aaadbe7584cb62e1",
+      "size": 5737
+    },
+    {
+      "path": "Deployment/Scaled_1DLead_11.csv",
+      "sha256": "10b04530b95a6bd30243d5c670dc91cb79d936815ad5ef343e4a2cda8c0107a2",
+      "size": 5771
+    },
+    {
+      "path": "Deployment/Scaled_1DLead_12.csv",
+      "sha256": "08ee3c50fcbadd4d02cc1bcc0c2bad3d20aa8c9a460d6d9782413a9b84a225e6",
+      "size": 5727
+    },
+    {
+      "path": "Deployment/Scaled_1DLead_2.csv",
+      "sha256": "7f81895c6befdfb6c08160c5c2fff7840027cdf3584a0b78012a4208b15fe24b",
+      "size": 5880
+    },
+    {
+      "path": "Deployment/Scaled_1DLead_3.csv",
+      "sha256": "5559a41091131780edcf30f376ad98e1ef2affbb989b130a3fb7ee7ef4fd57de",
+      "size": 5845
+    },
+    {
+      "path": "Deployment/Scaled_1DLead_4.csv",
+      "sha256": "627f9a0da1bec00d2e14d96672283221a9ac5d1183ede638abbf562d216038f1",
+      "size": 5761
+    },
+    {
+      "path": "Deployment/Scaled_1DLead_5.csv",
+      "sha256": "8a864d437dec7987993567052e8cd1d2fb70a78317caec395af66182bb03ee2d",
+      "size": 5739
+    },
+    {
+      "path": "Deployment/Scaled_1DLead_6.csv",
+      "sha256": "2f6aebe6dfd422766bd725bfa8ad1414cb10507c0f33169b1857c67b402b5332",
+      "size": 5718
+    },
+    {
+      "path": "Deployment/Scaled_1DLead_7.csv",
+      "sha256": "c1c6172c2db6f64acccea81f87b5f37ef2ad9b06c1721f4353e63317f8198e8c",
+      "size": 5797
+    },
+    {
+      "path": "Deployment/Scaled_1DLead_8.csv",
+      "sha256": "ea928fa728280bc4dfd4857d55593f9c0df4dc3167a53e8ad06fb19b332d9233",
+      "size": 5751
+    },
+    {
+      "path": "Deployment/Scaled_1DLead_9.csv",
+      "sha256": "3d68583ebac01cee05cec37ccccdb57259db2a6600bd42db44b4159f15076c3a",
+      "size": 5716
+    }
+  ],
+  "files": 44143,
+  "uncompressed_bytes": 3255038646
+}
