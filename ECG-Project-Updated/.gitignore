@@ -1,0 +1,16 @@
+# Installed dependencies and generated files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+node_modules/
+dist/
+*.log
+.pytest_cache/
+.DS_Store
+# Local configuration and uploads
+.env
+.env.*
+!.env.example
+uploads/
+validation/debug/
