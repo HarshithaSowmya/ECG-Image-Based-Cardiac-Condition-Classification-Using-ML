@@ -1,0 +1,2 @@
+# Store restored dataset/output contents directly, not Git LFS pointers.
+* -text -filter
