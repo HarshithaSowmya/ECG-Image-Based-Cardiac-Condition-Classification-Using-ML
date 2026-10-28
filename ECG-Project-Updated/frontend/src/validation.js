@@ -1,9 +1,9 @@
-const MAX_BYTES = 15 * 1024 * 1024;
+const MAX_BYTES = 4 * 1024 * 1024;
 const LABELS = ['NORMAL', 'AHB', 'MI', 'PMI'];
 
 export async function validateFile(file) {
   if (!file.size) throw new Error('The file is empty. Choose a readable ECG image.');
-  if (file.size > MAX_BYTES) throw new Error('The file exceeds 15 MB. Choose a smaller ECG image.');
+  if (file.size > MAX_BYTES) throw new Error('The file exceeds 4 MB. Choose a smaller ECG image.');
   if (!/\.(jpe?g|png)$/i.test(file.name)) {
     throw new Error('Unsupported file format. Please choose a JPEG or PNG image.');
   }

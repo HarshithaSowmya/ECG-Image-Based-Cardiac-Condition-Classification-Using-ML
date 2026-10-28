@@ -11,7 +11,7 @@ test('upload gate accepts JPG, JPEG and PNG and safely forwards disguised WebP t
 });
 test('empty, oversized, unsupported and forged uploads are blocked', async () => {
   await assert.rejects(validateFile(upload([])), /empty/);
-  await assert.rejects(validateFile(upload(new Uint8Array(15*1024*1024+1))), /15 MB/);
+  await assert.rejects(validateFile(upload(new Uint8Array(4*1024*1024+1))), /4 MB/);
   await assert.rejects(validateFile(upload(png,'image.svg','image/svg+xml')), /Unsupported/);
   await assert.rejects(validateFile(upload([1,2,3])), /readable/);
 });

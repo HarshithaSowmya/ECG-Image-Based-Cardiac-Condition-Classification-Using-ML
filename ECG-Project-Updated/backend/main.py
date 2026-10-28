@@ -8,7 +8,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import joblib
 import numpy as np
-import pandas as pd
 
 # Make `preprocessing` importable and model paths independent of the working dir
 ROOT = Path(__file__).resolve().parent.parent
@@ -18,6 +17,7 @@ from preprocessing.ecg_validator import (   # noqa: E402
     ECGValidator,
     ValidationConfig,
     MESSAGES,
+    transform_features,
 )
 
 LOW_CONFIDENCE = "LOW_CONFIDENCE"
@@ -64,9 +64,6 @@ LABELS = {
     2: "MI",
     3: "PMI"
 }
-
-FEATURE_COLUMNS = [f"feature_{i}" for i in range(3060)]
-
 
 def reject(result):
     """422 response. `detail` is a plain string so the existing frontend shows it."""
@@ -121,8 +118,7 @@ async def predict(file: UploadFile = File(...), rotation: int = Query(0, ge=0, l
         return reject(result)
 
     # Prediction (features were already extracted during validation)
-    features_df = pd.DataFrame([result.features], columns=FEATURE_COLUMNS)
-    features_pca = pca.transform(features_df)
+    features_pca = transform_features(pca, result.features.reshape(1, -1))
 
     prediction = int(model.predict(features_pca)[0])
     probabilities = model.predict_proba(features_pca)[0]

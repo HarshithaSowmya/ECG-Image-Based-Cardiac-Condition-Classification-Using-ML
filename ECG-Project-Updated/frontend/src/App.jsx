@@ -6,7 +6,7 @@ import About from "./pages/About.jsx";
 import Limits from "./pages/Limits.jsx";
 import { THEMES } from "./data.js";
 
-const API_URL = (import.meta.env.VITE_API_URL || "http://127.0.0.1:8000").replace(/\/$/, "");
+const API_URL = (import.meta.env.VITE_API_URL || (import.meta.env.DEV ? "http://127.0.0.1:8000" : "/api")).replace(/\/$/, "");
 
 const PAGES = [
   { id: "analysis", icon: "🫀", label: "ECG Analysis" },

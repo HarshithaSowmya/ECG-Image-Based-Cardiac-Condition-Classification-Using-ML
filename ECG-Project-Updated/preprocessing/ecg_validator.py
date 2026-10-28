@@ -18,6 +18,7 @@ image was rejected and tune thresholds.
 from __future__ import annotations
 
 import io
+import warnings
 import json
 import os
 from dataclasses import dataclass, field, asdict, replace
@@ -55,7 +56,7 @@ MESSAGES = {
     INVALID_FILE: "This file is not a valid JPG/PNG image.",
     IMAGE_TOO_SMALL: "This image is too small to be a readable 12-lead ECG. If it is an ECG, "
                      "please upload a higher-resolution version.",
-    FILE_TOO_LARGE: "The file is too large. Please upload an image under 15 MB.",
+    FILE_TOO_LARGE: "The file is too large. Please upload an image under 4 MB.",
     NOT_ECG: "This is not an ECG image. Please upload a 12-lead ECG (waveforms on ECG grid paper).",
     NOT_12_LEAD: "This looks like an ECG, but it does not contain a complete 12-lead layout. "
                  "Please upload a full 12-lead ECG (not a single-lead strip or a partial image) and make sure it is upright, not sideways.",
@@ -108,7 +109,7 @@ class ValidationResult:
 @dataclass
 class ValidationConfig:
     # stage 1
-    max_file_bytes: int = 15 * 1024 * 1024
+    max_file_bytes: int = 4 * 1024 * 1024
     min_side_px: int = 300
     # stage 2
     min_aspect: float = 1.15            # landscape; reference is 2213/1572 = 1.41
@@ -382,6 +383,17 @@ def check_signal(features, failed_leads, cfg: ValidationConfig):
 # ----------------------------------------------------------------------------
 # Stage 4 - are the features like the training data?
 # ----------------------------------------------------------------------------
+def transform_features(pca, values):
+    """Preserve the numerical PCA input without a pandas runtime dependency.
+
+    The saved PCA also stores training column names. Column order remains the
+    same; suppress only sklearn's warning about unlabeled ndarray input.
+    """
+    with warnings.catch_warnings():
+        warnings.filterwarnings('ignore', message='X does not have valid feature names', category=UserWarning)
+        return pca.transform(np.asarray(values, dtype=np.float64))
+
+
 def ood_scores(pca, features: np.ndarray):
     """
     recon_error : distance between the features and their PCA reconstruction
@@ -390,10 +402,7 @@ def ood_scores(pca, features: np.ndarray):
                   units of the training spread (large = extreme sample)
     """
     x = features.reshape(1, -1)
-    if hasattr(pca, "feature_names_in_"):          # PCA was fitted on a DataFrame
-        import pandas as pd
-        x = pd.DataFrame(x, columns=pca.feature_names_in_)
-    z = pca.transform(x)
+    z = transform_features(pca, x)
     recon = pca.inverse_transform(z)
     recon_error = float(np.sqrt(((np.asarray(x) - recon) ** 2).sum()))
     mahal = float(np.sqrt((z[0] ** 2 / pca.explained_variance_).sum()))

@@ -4,6 +4,10 @@ A React + FastAPI research application with the supplied CardioLens UI, ECG-regi
 bounding boxes, automatic quarter-turn correction, twelve lead crops, validation,
 and PCA/SVM classification. The existing trained model files are included.
 
+## Vercel deployment
+
+See [DEPLOY_VERCEL.md](DEPLOY_VERCEL.md) to deploy the frontend and backend in one Vercel project. The upload limit is 4 MB.
+
 ## Open in VS Code
 
 1. Extract the ZIP.
@@ -59,7 +63,7 @@ Run both tasks.
 
 ## Use the application
 
-Upload JPG/JPEG/PNG (up to 15 MB, minimum 300 pixels on each side). The server checks
+Upload JPG/JPEG/PNG (up to 4 MB, minimum 300 pixels on each side). The server checks
 file bytes and locates the ECG panel before extraction. Some downloaded JPG files
 actually contain WebP; the decoder handles this and displays a warning. Inspect
 the green boundary, upright ECG and twelve lead crops. Use the 180-degree correction
